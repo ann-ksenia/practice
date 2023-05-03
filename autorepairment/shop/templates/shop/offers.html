@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{spectr.title}}
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<h3 style="float:left;margin:20px 20px 20px 0px;">{{spectr.title}}</h3>
+<p></p>
+<table class="table table-info table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col-md-2">Услуга</th>
+      <th scope="col-md-2">Стоимость*</th>
+    </tr>
+  </thead>
+
+    {% for item in offers %}
+  <tbody>
+    <tr>
+      <td>{{item.title}}</td>
+      <td>{{item.price}}</td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+<p></p>
+<p style="font-style: oblique">Без учета персональной скидки. Чтобы узнать информацию о правилах начисления и размерах скидок перейдите в раздел меню "Скидки".</p>
+
+{% endblock %}
+

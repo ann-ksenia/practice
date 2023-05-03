@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Услуги У Иваныча
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card mb-3 col-md-6" style="float:left;margin:35px 10px 10px 0;width:90%;max-width:520px">
+    <div class="card-header">
+        <h2>Связь с нами:</h2>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <h3>Адрес:</h3>
+                <h5> Г. Томск ул.Вершинина 39А. </h5>
+                Вход со стороны универмага слева.
+                <p></p>
+                <h3>Мобильный:</h3>
+                <p></p>+79965437894<p></p>+79957680355<p></p>+79987999994
+                <p></p>
+                <h3>Почта:</h3>pochta3@mail.ru
+                <p></p> pochta3@mail.ru
+                <p></p>pochta3@mail.ru
+                <p></p>
+                <h3>Мы Вконтакте:</h3>
+                ссылка
+                <p></p>
+                <a href="{% url 'to_order' %}" class="btn btn-primary" style="float:left;margin:0 10px 10px 160px;">Сделать заказ</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="https://pngimg.com/uploads/man/man_PNG6522.png" height="670" width="410"
+     class="mr-1" style="float:top;margin: 15px 5px 0px 0px;">
+{% endblock %}
+

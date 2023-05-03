@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+У Иваныча
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+<p></p>
+{% for item in offersspectrs %}
+<div class="card mb-2 col-md-5" id="card2" style="float:left;margin:10px 60px 10px 0;">
+    {% if item.photo %}
+    <img src="{{ item.photo.url }}" height="300" width="400" class="card-img-top">
+    {% else %}
+    <img src="https://www.tinydog.ru/wp-content/uploads/2016/05/Korgi.jpg" height="300" width="350"
+         class="mr-3" style="float:left;margin:0 20px 20px 0;">
+    {% endif %}
+
+    <div class="card-body">
+        <h5 class="card-title">{{ item.title }}</h5>
+        <p class="card-text">{{ item.description |safe| linebreaks| truncatewords:10}}</p>
+        <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Узнать больше</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+

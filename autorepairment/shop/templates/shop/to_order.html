@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Создание заказа
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Создание заказа</h1>
+<div style="background-color: #f0f0f0 ;font-style: oblique"> <p style ="font-weight:400">Чтобы узнать персональную скидку, сделать заказ или создать профиль - зарегистрируйтесь.
+    Если Вы уже делали заказы в нашей мастерской,
+реккомендуем вводить имя\номер телефона\почту, указанную ранее при заказах.</p></div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit" class="btn btn-primary btn-block">Оставить заказ</button>
+</form>
+{% endblock %}

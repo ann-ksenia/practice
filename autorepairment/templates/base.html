@@ -1,0 +1,46 @@
+<!doctype html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <title> {% block title %} Автомастерская "У Иваныча" {% endblock %}</title>
+</head>
+<body >
+
+{% include 'inc/__nav.html' %}
+
+<div class="container mt-3">
+    <div class="row">
+
+        <div class="col-md-2">
+            {% block sidebar %} sidebar {% endblock %}
+        </div>
+
+        <div class="col-md-9">
+
+            {% if messages %}
+            {% for mes in messages %}
+
+                    <div class="alert alert-info" role="alert">{{ mes }}</div>
+
+            {% endfor %}
+            {% endif %}
+
+            <div>
+                <img src="{% static 'pic.png' %}" id="pic" style="float:top;
+    margin:30px 0px 10px 30px;
+    width:118%;"></div>
+            {% block content %} content {% endblock %}
+        </div>
+
+    </div>
+</div>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+</html>

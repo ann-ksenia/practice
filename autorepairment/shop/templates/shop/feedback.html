@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+отзывы
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<form method="post" style="margin:30px 0 0 0 ">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button type="submit" style="float:bottom;float:right; margin: 20px 0 0 0" class="btn btn-primary btn-block">Оставить отзыв
+</button>
+</form>
+{% endif %}
+
+<p></p>
+<h5 style="margin:70px 0 10px 0">Отзывы других клиентов:</h5>
+{% for item in feedbacks %}
+<div class="card mb-3">
+    <div class="card-header">
+        Автор: {{ item.user }}
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <p class="card-text">{{ item.content }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Дата: {{ item.date|date:"Y-m-d H:i" }}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+

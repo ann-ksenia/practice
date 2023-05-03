@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Услуги У Иваныча
+{% endblock %}
+
+{% block sidebar %}
+{% include 'inc/__sidebar.html' %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="card mb-3 col-md-7" style="float:left;margin:15px 10px 10px 0;">
+    <div class="card-header">
+        <h2>Наши скидки:</h2>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            <div class="media-body">
+                <b>Уважаемые клиенты</b>, наша компания предоставляет скидку в размере<b> 10%</b> постоянным клиентам нашей автомастерской.
+                <p></p>
+                Постоянным считаются клиенты с количеством заказов <b>более 5</b> в любой из наших автомастерских и с заказами на любые машины.
+                <p></p>
+                Вы можете проверить, есть ли у Вас скидка постоянного клиента в профиле на сайте. Для этого войдите в свой аккаунт.
+                Если у Вас нет аккаунта на нашем сайте - зарегистрируйтесь по кнопке сверху в правом углу.
+                <p></p>
+                <p style = "background-color: #c4e9ff;font-weight:400">
+                    Ваша скидка составляет {{sale}} %.
+                {% if sale == 0 %}
+                У Вас еще недостаточно заказов, либо Вы ввели имя, которое раньше не указывале в нашей автомастерской.
+                {% else %}
+                У Вас {{amount}} заказов.
+                {% endif %}
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="https://teplokraft26.ru/wp-content/uploads/2020/02/man.png" height="400" width="335"
+     class="mr-1" style="float:top;margin: 15px 0px 0px 0px;">
+{% endblock %}
